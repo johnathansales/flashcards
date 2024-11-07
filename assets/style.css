@@ -1,0 +1,136 @@
+:root {
+    --preto: #000000;
+    --branco: #FFFFFF;
+    --cor-do-texo: #DBE4EF;
+    --pergunta-cartao: #144480;
+    --resposta-cartao: #00F4BF;
+}
+
+body {
+    background: url('img/bg-desktop.webp');
+    margin: 0;
+    font-family: Bai Jamjuree;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem
+}
+
+.cartao {
+    margin: 0.5rem 1rem;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+}
+
+.cartao__conteudo {
+    background-color: var(--pergunta-cartao);
+    color: var(--cor-do-texo);
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+}
+
+.cartao__conteudo h3 {
+    color: var(--cor-do-texo);
+    border: 1px solid var(--cor-do-texo);
+    border-radius: 0.6rem;
+    text-align: left;
+    position: absolute;
+    margin: 0.6rem;
+    padding: 0.5rem;
+    font-size: 1vw;
+    backface-visibility: hidden;
+}
+
+.cartao__conteudo p {
+    margin-top: 5rem;
+    padding: 2rem;
+    font-size: 1.4vw;
+}
+
+.cartao__conteudo__pergunta p {
+    color: var(--cor-do-texo);
+    font-weight: 500;
+}
+
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+    background-color: rgba(0, 244, 191, 0.2);
+    border: 4px solid var(--resposta-cartao);
+}
+
+.cartao__conteudo__resposta p {
+    color: var(--resposta-cartao);
+    font-weight: 700;
+}
+
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+.cartao__conteudo__pergunta, .cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: var(--preto);
+    color: var(--branco);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+}
+
+footer p {
+    text-align: center;
+    font-size: 0.6rem;
+    margin-top: 0,5rem;
+}
+
+@media (max-width: 360px) { 
+
+    body {
+        background: url(img/bg-mobile.webp);
+    }
+
+    .cartao {
+        flex: 1 0 calc(100% - 1rem);
+    }
+
+    .cartao__conteudo h3 {
+        font-size: 3.5vw;
+    }
+
+    .cartao__conteudo p {
+        font-size: 4.6vw;
+    }
+}
+
+@media (max-width: 762px) { 
+
+    body {
+        background: url(img/bg-tablet.webp);
+    }
+
+    .cartao {
+        flex: 1 0 calc(100% - 1rem);
+    }
+
+    .cartao__conteudo h3 {
+        font-size: 2.25vw;
+    }
+
+    .cartao__conteudo p {
+        font-size: 3vw;
+    }
+}
